@@ -7,12 +7,17 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import ru.ialmostdeveloper.soulfire_mobile.R
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import ru.ialmostdeveloper.soulfire_mobile.databinding.ActivityMainBinding
+import ru.ialmostdeveloper.soulfire_mobile.network.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var sessionManager: SessionManager
+    private lateinit var apiClient: ApiClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,5 +35,41 @@ class MainActivity : AppCompatActivity() {
         ))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
+        apiClient = ApiClient()
+        sessionManager = SessionManager(this)
+
+        apiClient.getApiService().login(LoginRequest(email = "s@sample.com", password = "mypassword"))
+            .enqueue(object : Callback<LoginResponse> {
+                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                    // Error logging in
+                }
+
+                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                    val loginResponse = response.body()
+
+                    if (loginResponse?.statusCode == 200 && loginResponse.user != null) {
+                        sessionManager.saveAuthToken(loginResponse.authToken)
+                    } else {
+                        // Error logging in
+                    }
+                }
+            })
+    }
+
+    private fun fetchPosts() {
+
+        // Pass the token as parameter
+        apiClient.getApiService().fetchPosts(token = "Bearer ${sessionManager.fetchAuthToken()}")
+            .enqueue(object : Callback<PostsResponse> {
+                override fun onFailure(call: Call<PostsResponse>, t: Throwable) {
+                    // Error fetching posts
+                }
+
+                override fun onResponse(call: Call<PostsResponse>, response: Response<PostsResponse>) {
+                    // Handle function to display posts
+                }
+            })
     }
 }

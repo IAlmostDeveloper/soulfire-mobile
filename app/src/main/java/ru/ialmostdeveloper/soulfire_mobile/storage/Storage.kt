@@ -89,7 +89,7 @@ class Storage(private val context: Context) {
         } catch (e: IOException) {
             e.printStackTrace()
         }
-        return if (url.isEmpty()) "https://ik.remzalp.ru" else url
+        return if (url.isEmpty()) "https://localhost:5001/api" else url
     }
 
     fun writeServerUrl(newServerUrl: String?) {
