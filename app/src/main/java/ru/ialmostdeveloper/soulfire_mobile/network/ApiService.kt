@@ -10,7 +10,7 @@ import ru.ialmostdeveloper.soulfire_mobile.Constants
 
 interface APIService {
     @POST(Constants.LOGIN_URL)
-    @FormUrlEncoded
+//    @FormUrlEncoded
     fun login(@Body request: LoginRequest): Call<LoginResponse>
 
     @GET(Constants.POSTS_URL)

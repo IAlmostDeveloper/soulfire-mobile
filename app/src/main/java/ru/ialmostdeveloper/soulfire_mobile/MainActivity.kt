@@ -39,23 +39,6 @@ class MainActivity : AppCompatActivity() {
 
         apiClient = ApiClient()
         sessionManager = SessionManager(this)
-
-        apiClient.getApiService().login(LoginRequest(email = "s@sample.com", password = "mypassword"))
-            .enqueue(object : Callback<LoginResponse> {
-                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                    // Error logging in
-                }
-
-                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                    val loginResponse = response.body()
-
-                    if (loginResponse?.statusCode == 200 && loginResponse.user != null) {
-                        sessionManager.saveAuthToken(loginResponse.authToken)
-                    } else {
-                        // Error logging in
-                    }
-                }
-            })
     }
 
     private fun fetchPosts() {

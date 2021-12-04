@@ -3,8 +3,8 @@ package ru.ialmostdeveloper.soulfire_mobile.network
 import com.google.gson.annotations.SerializedName
 
 data class LoginRequest (
-    @SerializedName("email")
-    var email: String,
+    @SerializedName("Username")
+    var username: String,
 
     @SerializedName("password")
     var password: String

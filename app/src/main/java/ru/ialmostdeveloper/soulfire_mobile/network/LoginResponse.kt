@@ -3,12 +3,10 @@ package ru.ialmostdeveloper.soulfire_mobile.network
 import com.google.gson.annotations.SerializedName
 
 data class LoginResponse (
-    @SerializedName("status_code")
-    var statusCode: Int,
 
-    @SerializedName("auth_token")
+    @SerializedName("token")
     var authToken: String,
 
-    @SerializedName("user")
-    var user: User
+    @SerializedName("message")
+    var message: String
 )
