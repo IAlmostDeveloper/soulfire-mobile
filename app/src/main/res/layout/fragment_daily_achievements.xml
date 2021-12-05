@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context="ru.ialmostdeveloper.soulfire_mobile.ui.SignUpFragment">
 
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintTop_toTopOf="parent">
+    </ListView>
+
     <TextView
         android:id="@+id/text_daily_achievements"
         android:layout_width="match_parent"
@@ -15,10 +23,11 @@
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
 
 
 
