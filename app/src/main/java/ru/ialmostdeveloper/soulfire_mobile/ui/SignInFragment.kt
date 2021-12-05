@@ -20,6 +20,7 @@ import ru.ialmostdeveloper.soulfire_mobile.network.SessionManager
 class SignInFragment : Fragment() {
     private lateinit var sessionManager: SessionManager
     private lateinit var apiClient: ApiClient
+
     private lateinit var usernameEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var signInButton: Button
@@ -48,7 +49,7 @@ class SignInFragment : Fragment() {
         apiClient.getApiService().login(SignInRequest(username = username, password = password))
             .enqueue(object : Callback<SignInResponse> {
                 override fun onFailure(call: Call<SignInResponse>, t: Throwable) {
-                    var textView = view?.findViewById<TextView>(R.id.text_home)
+                    var textView = view?.findViewById<TextView>(R.id.text_sign_in)
                     if (textView != null) {
                         textView.text = t.message
                     }
@@ -62,7 +63,7 @@ class SignInFragment : Fragment() {
 
                     if (loginResponse?.message == "Success") {
                         sessionManager.saveAuthToken(loginResponse.token)
-                        var textView = view?.findViewById<TextView>(R.id.text_home)
+                        var textView = view?.findViewById<TextView>(R.id.text_sign_in)
                         if (textView != null) {
                             textView.text = loginResponse.token
                         }
