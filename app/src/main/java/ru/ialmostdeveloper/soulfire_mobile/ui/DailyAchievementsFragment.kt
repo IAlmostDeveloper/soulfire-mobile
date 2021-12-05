@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,7 +36,7 @@ class DailyAchievementsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_daily_achievements, container, false)
 
         listElements = mutableListOf()
-        listView = view.findViewById(R.id.listView)
+        listView = view.findViewById(R.id.dailyAchievementsListView)
         arrayAdapter = AchievementsAdapter(this.requireContext(), listElements)
         listView.adapter = arrayAdapter
 

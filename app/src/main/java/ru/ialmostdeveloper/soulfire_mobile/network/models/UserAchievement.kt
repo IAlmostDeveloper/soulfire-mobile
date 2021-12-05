@@ -5,7 +5,7 @@ import java.util.*
 
 data class UserAchievement (
     @SerializedName("id")
-    var id: Int,
+    var id: String,
 
     @SerializedName("userId")
     var userId: String,
@@ -14,7 +14,7 @@ data class UserAchievement (
     var achievementId: String,
 
     @SerializedName("date")
-    var date: Date,
+    var date: String,
 
     @SerializedName("achievement")
     var achievement: Achievement

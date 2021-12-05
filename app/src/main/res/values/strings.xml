@@ -3,4 +3,5 @@
     <string name="title_sign_in">Sign In</string>
     <string name="title_sign_up">Sign Up</string>
     <string name="title_daily_achievements">Daily Achievements</string>
+    <string name="title_user_achievements">User Achievements</string>
 </resources>

@@ -18,6 +18,9 @@ interface APIService {
     @GET(Constants.ACHIEVEMENTS_URL)
     fun getAchievements(@Header("Authorization") token: String): Call<AchievementsResponse>
 
+    @GET(Constants.USER_ACHIEVEMENTS_URL)
+    fun getUserAchievements(@Header("Authorization") token: String, @Path("id") id: String): Call<UserAchievementsResponse>
+
     @GET(Constants.POSTS_URL)
     fun fetchPosts(@Header("Authorization") token: String): Call<PostsResponse>
 }

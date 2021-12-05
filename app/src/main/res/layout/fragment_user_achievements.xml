@@ -4,18 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ru.ialmostdeveloper.soulfire_mobile.ui.DailyAchievementsFragment">
+    tools:context="ru.ialmostdeveloper.soulfire_mobile.ui.UserAchievementsFragment">
 
-    <ListView
-        android:id="@+id/dailyAchievementsListView"
+
+<ListView
+        android:id="@+id/userAchievementsListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         app:layout_constraintTop_toTopOf="parent">
     </ListView>
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

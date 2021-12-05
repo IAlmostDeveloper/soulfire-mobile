@@ -7,22 +7,11 @@ import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ru.ialmostdeveloper.soulfire_mobile.storage.Storage
 import javax.inject.Singleton
 
 
 @Module
 class AppModule {
-
-    @Provides
-    @Singleton
-    fun provideRetrofit(storage: Storage): Retrofit {
-        return Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(storage.readServerUrl())
-            .build()
-    }
-
     @Provides
     @Singleton
     fun provideGson(): Gson {

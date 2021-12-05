@@ -22,4 +22,10 @@
         android:name="ru.ialmostdeveloper.soulfire_mobile.ui.DailyAchievementsFragment"
         android:label="@string/title_daily_achievements"
         tools:layout="@layout/fragment_daily_achievements" />
+
+    <fragment
+        android:id="@+id/navigation_user_achievements"
+        android:name="ru.ialmostdeveloper.soulfire_mobile.ui.UserAchievementsFragment"
+        android:label="@string/title_user_achievements"
+        tools:layout="@layout/fragment_user_achievements" />
 </navigation>

@@ -9,21 +9,27 @@ class SessionManager (context: Context) {
 
     companion object {
         const val USER_TOKEN = "user_token"
+        const val USER_NAME = "user_name"
+        const val USER_ID = "user_id"
     }
 
-    /**
-     * Function to save auth token
-     */
-    fun saveAuthToken(token: String) {
+    fun saveUserCredentials(credentials: UserCredentials) {
         val editor = prefs.edit()
-        editor.putString(USER_TOKEN, token)
+        editor.putString(USER_TOKEN, credentials.token)
+        editor.putString(USER_NAME, credentials.username)
+        editor.putString(USER_ID, credentials.userId)
         editor.apply()
     }
 
-    /**
-     * Function to fetch auth token
-     */
     fun fetchAuthToken(): String? {
         return prefs.getString(USER_TOKEN, null)
+    }
+
+    fun fetchUserId(): String? {
+        return prefs.getString(USER_ID, null)
+    }
+
+    fun fetchUserName(): String? {
+        return prefs.getString(USER_NAME, null)
     }
 }

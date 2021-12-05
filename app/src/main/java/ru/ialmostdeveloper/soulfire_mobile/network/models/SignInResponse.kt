@@ -8,5 +8,11 @@ data class SignInResponse (
     var token: String,
 
     @SerializedName("message")
-    var message: String
+    var message: String,
+
+    @SerializedName("userId")
+    var userId: String,
+
+    @SerializedName("username")
+    var username: String,
 )

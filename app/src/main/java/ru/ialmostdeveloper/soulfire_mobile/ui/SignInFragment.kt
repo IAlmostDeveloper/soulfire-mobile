@@ -16,6 +16,7 @@ import ru.ialmostdeveloper.soulfire_mobile.network.ApiClient
 import ru.ialmostdeveloper.soulfire_mobile.network.models.SignInRequest
 import ru.ialmostdeveloper.soulfire_mobile.network.models.SignInResponse
 import ru.ialmostdeveloper.soulfire_mobile.network.SessionManager
+import ru.ialmostdeveloper.soulfire_mobile.network.UserCredentials
 
 class SignInFragment : Fragment() {
     private lateinit var sessionManager: SessionManager
@@ -59,13 +60,13 @@ class SignInFragment : Fragment() {
                     call: Call<SignInResponse>,
                     response: Response<SignInResponse>
                 ) {
-                    val loginResponse = response.body()
+                    val signInResponse = response.body()
 
-                    if (loginResponse?.message == "Success") {
-                        sessionManager.saveAuthToken(loginResponse.token)
+                    if (signInResponse?.message == "Success") {
+                        sessionManager.saveUserCredentials(UserCredentials(signInResponse.username, signInResponse.userId,signInResponse.token))
                         var textView = view?.findViewById<TextView>(R.id.text_sign_in)
                         if (textView != null) {
-                            textView.text = loginResponse.token
+                            textView.text = signInResponse.token
                         }
                     }
                 }
