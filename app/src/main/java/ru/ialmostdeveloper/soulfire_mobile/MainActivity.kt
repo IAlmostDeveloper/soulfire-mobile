@@ -34,7 +34,8 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_sign_in,
             R.id.navigation_sign_up,
             R.id.navigation_daily_achievements,
-            R.id.navigation_user_achievements
+            R.id.navigation_user_achievements,
+            R.id.navigation_quiz,
         ))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
