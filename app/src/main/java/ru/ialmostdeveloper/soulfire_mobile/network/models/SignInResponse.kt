@@ -1,11 +1,11 @@
-package ru.ialmostdeveloper.soulfire_mobile.network
+package ru.ialmostdeveloper.soulfire_mobile.network.models
 
 import com.google.gson.annotations.SerializedName
 
-data class LoginResponse (
+data class SignInResponse (
 
     @SerializedName("token")
-    var authToken: String,
+    var token: String,
 
     @SerializedName("message")
     var message: String

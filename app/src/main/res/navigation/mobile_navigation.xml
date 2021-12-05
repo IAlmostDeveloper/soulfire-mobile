@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="ru.ialmostdeveloper.soulfire_mobile.ui.home.HomeFragment"
+        android:name="ru.ialmostdeveloper.soulfire_mobile.ui.SignInFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_sign_in" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="ru.ialmostdeveloper.soulfire_mobile.ui.dashboard.DashboardFragment"
+        android:name="ru.ialmostdeveloper.soulfire_mobile.ui.SignUpFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_sign_up" />
 
     <fragment
         android:id="@+id/navigation_daily_achievements"
-        android:name="ru.ialmostdeveloper.soulfire_mobile.ui.daily_achievements.DailyAchievementsFragment"
+        android:name="ru.ialmostdeveloper.soulfire_mobile.ui.DailyAchievementsFragment"
         android:label="@string/title_daily_achievements"
         tools:layout="@layout/fragment_daily_achievements" />
 </navigation>

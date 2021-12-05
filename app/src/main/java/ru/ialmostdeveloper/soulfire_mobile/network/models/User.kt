@@ -1,4 +1,4 @@
-package ru.ialmostdeveloper.soulfire_mobile.network
+package ru.ialmostdeveloper.soulfire_mobile.network.models
 
 import com.google.gson.annotations.SerializedName
 

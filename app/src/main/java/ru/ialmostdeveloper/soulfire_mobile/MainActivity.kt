@@ -12,6 +12,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import ru.ialmostdeveloper.soulfire_mobile.databinding.ActivityMainBinding
 import ru.ialmostdeveloper.soulfire_mobile.network.*
+import ru.ialmostdeveloper.soulfire_mobile.network.models.PostsResponse
 
 class MainActivity : AppCompatActivity() {
 
