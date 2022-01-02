@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_user_achievements,
             R.id.navigation_quiz,
         ))
-        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
 

@@ -8,10 +8,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import ru.ialmostdeveloper.soulfire_mobile.R
+import ru.ialmostdeveloper.soulfire_mobile.SlideAdapter
 import ru.ialmostdeveloper.soulfire_mobile.network.ApiClient
 import ru.ialmostdeveloper.soulfire_mobile.network.models.SignInRequest
 import ru.ialmostdeveloper.soulfire_mobile.network.models.SignInResponse
@@ -21,6 +23,8 @@ import ru.ialmostdeveloper.soulfire_mobile.network.UserCredentials
 class QuizFragment : Fragment() {
     private lateinit var sessionManager: SessionManager
     private lateinit var apiClient: ApiClient
+    private lateinit var viewPager: ViewPager
+    private lateinit var slideAdapter: SlideAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,7 +34,9 @@ class QuizFragment : Fragment() {
         apiClient = ApiClient()
         sessionManager = SessionManager(this.requireContext())
         val view = inflater.inflate(R.layout.fragment_quiz, container, false)
-
+        viewPager = view.findViewById(R.id.viewpager);
+        slideAdapter = SlideAdapter(this.requireContext())
+        viewPager.adapter = slideAdapter
         return view
     }
 }
