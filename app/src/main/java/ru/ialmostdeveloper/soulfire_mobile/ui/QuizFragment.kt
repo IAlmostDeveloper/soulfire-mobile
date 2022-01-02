@@ -37,6 +37,17 @@ class QuizFragment : Fragment() {
         viewPager = view.findViewById(R.id.viewpager);
         slideAdapter = SlideAdapter(this.requireContext())
         viewPager.adapter = slideAdapter
-        return view
+
+
+//        ViewPager viewPager = findViewById(R.id.viewpager);
+//        SlideAdapter slideAdapter = new SlideAdapter(this);
+//        viewPager.setAdapter(slideAdapter);
+        val btn_welcome: Button = view.findViewById<Button>(R.id.welcome_btn)
+        btn_welcome.setOnClickListener(
+            View.OnClickListener { v: View? ->
+                val position = viewPager.currentItem
+                btn_welcome.text = slideAdapter.lst_title[position]
+            })
+            return view
     }
 }

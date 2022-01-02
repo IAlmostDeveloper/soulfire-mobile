@@ -1,5 +1,6 @@
 package ru.ialmostdeveloper.soulfire_mobile
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -42,20 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         apiClient = ApiClient()
         sessionManager = SessionManager(this)
-    }
 
-    private fun fetchPosts() {
-
-        // Pass the token as parameter
-        apiClient.getApiService().fetchPosts(token = "Bearer ${sessionManager.fetchAuthToken()}")
-            .enqueue(object : Callback<PostsResponse> {
-                override fun onFailure(call: Call<PostsResponse>, t: Throwable) {
-                    // Error fetching posts
-                }
-
-                override fun onResponse(call: Call<PostsResponse>, response: Response<PostsResponse>) {
-                    // Handle function to display posts
-                }
-            })
+        startActivity(Intent(this, LoginActivity::class.java))
     }
 }
