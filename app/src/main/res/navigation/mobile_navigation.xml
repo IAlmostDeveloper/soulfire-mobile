@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/navigation_quiz"
-        android:name="ru.ialmostdeveloper.soulfire_mobile.ui.QuizFragment"
+        android:name="ru.ialmostdeveloper.soulfire_mobile.ui.RegisterFragment1"
         android:label="@string/title_quiz"
         tools:layout="@layout/fragment_quiz" />
 </navigation>
