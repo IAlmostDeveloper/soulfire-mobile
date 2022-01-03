@@ -1,6 +1,7 @@
 package ru.ialmostdeveloper.soulfire_mobile
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -23,13 +24,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val sprefs = getSharedPreferences("ru.ialmostdeveloper.soulfire_mobile", MODE_PRIVATE)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+//        binding = ActivityMainBinding.inflate(layoutInflater)
+//        setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
+//        val navView: BottomNavigationView = binding.navView
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        //val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
         val appBarConfiguration = AppBarConfiguration(setOf(
             R.id.navigation_sign_in,
@@ -38,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_user_achievements,
             R.id.navigation_quiz,
         ))
-        navView.setupWithNavController(navController)
+        //navView.setupWithNavController(navController)
 
 
         apiClient = ApiClient()

@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
         Button btn_register = findViewById(R.id.btn_register);
         Button btn_login = findViewById(R.id.btn_login);
 
-        btn_register.setOnClickListener(v -> startActivity(new Intent(self, RegisterActivity.class)));
+        btn_register.setOnClickListener(v -> startActivity(new Intent(self, RegisterActivity1.class)));
 
         btn_login.setOnClickListener(v -> {
 
