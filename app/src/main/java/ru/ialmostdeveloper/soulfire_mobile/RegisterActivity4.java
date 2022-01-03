@@ -17,20 +17,17 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class RegisterActivity2 extends AppCompatActivity {
+public class RegisterActivity4 extends AppCompatActivity {
 
-    private final String[] options = {"Тревога и страх", "Беспокойный сон", "Потливость", "Учащенное сердцебиение"};
+    private final String[] options = {"Я непривлекателен", "Мне не везет", "Я скучен", "Мое мнение не имеет значения"};
     private final ArrayList<String> selectedOptions = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register2);
+        setContentView(R.layout.activity_register4);
+
         SharedPreferences sprefs = this.getSharedPreferences("ru.ialmostdeveloper.soulfire_mobile", Context.MODE_PRIVATE);
-
-        TextView welcome_label = findViewById(R.id.welcome_label);
-
-
         LinearLayout card_layout = findViewById(R.id.card_layout);
         for (int i = 0; i < options.length; i++) {
             CardView cardView = new CardView(this);
@@ -67,14 +64,12 @@ public class RegisterActivity2 extends AppCompatActivity {
             cardView.addView(text);
             card_layout.addView(cardView);
         }
+        Button welcome_btn = findViewById(R.id.welcome_btn);
 
-        welcome_label.setText(sprefs.getString("userCharacterType", "Undefined kek"));
-
-        Button btn_welcome = findViewById(R.id.welcome_btn);
-        btn_welcome.setOnClickListener(v -> {
-            Set<String> optionsSet = new HashSet<>(selectedOptions);
-            sprefs.edit().putStringSet("userAutoThoughts", optionsSet).apply();
-            startActivity(new Intent(this, RegisterActivity3.class));
+        welcome_btn.setOnClickListener(v -> {
+            Set<String> optionsSet = new HashSet<String>(selectedOptions);
+            sprefs.edit().putStringSet("userDeepThoughts", optionsSet).apply();
+            startActivity(new Intent(this, RegisterActivity5.class));
         });
     }
 }

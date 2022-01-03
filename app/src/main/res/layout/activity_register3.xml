@@ -7,22 +7,23 @@
     tools:context=".RegisterActivity3">
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/welcome_label"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="3333333333333333333" />
 
     <LinearLayout
-        android:id="@+id/card_layout2"
+        android:id="@+id/card_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/welcome_btn3"
+        app:layout_constraintBottom_toTopOf="@id/welcome_btn"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
     <Button
-        android:id="@+id/welcome_btn3"
+        android:id="@+id/welcome_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="готово"
