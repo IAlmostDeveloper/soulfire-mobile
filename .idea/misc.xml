@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/developer/AndroidStudioProjects/soulfiremobile/app/src/main/res/drawable/card_shape_selected.xml" value="0.41875" />
         <entry key="..\:/Users/developer/AndroidStudioProjects/soulfiremobile/app/src/main/res/layout/achievement.xml" value="0.40260416666666665" />
         <entry key="..\:/Users/developer/AndroidStudioProjects/soulfiremobile/app/src/main/res/layout/achievement_item.xml" value="0.40260416666666665" />
         <entry key="..\:/Users/developer/AndroidStudioProjects/soulfiremobile/app/src/main/res/layout/activity_login.xml" value="0.2526041666666667" />
