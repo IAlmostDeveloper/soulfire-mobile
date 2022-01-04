@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ import java.util.Set;
 public class RegisterActivity2 extends AppCompatActivity {
 
     private final String[] options = {"Тревога и страх", "Беспокойный сон", "Потливость", "Учащенное сердцебиение"};
+    private final int[] optionsImg = {R.drawable.anxiety, R.drawable.insomnia, R.drawable.sweating, R.drawable.heartbeat};
     private final ArrayList<String> selectedOptions = new ArrayList<String>();
 
     @Override
@@ -32,12 +34,12 @@ public class RegisterActivity2 extends AppCompatActivity {
 
 
         LinearLayout card_layout = findViewById(R.id.card_layout);
+        card_layout.setOrientation(LinearLayout.VERTICAL);
         for (int i = 0; i < options.length; i++) {
             CardView cardView = new CardView(this);
 
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, // CardView width
-                    LinearLayout.LayoutParams.WRAP_CONTENT // CardView height
+                    400,400 // CardView height
             );
             final int j = i;
             layoutParams.setMargins(20, 20, 20, 20);
@@ -61,6 +63,11 @@ public class RegisterActivity2 extends AppCompatActivity {
                     cardView.setBackgroundResource(0);
                 }
             });
+
+            ImageView imageView = new ImageView(this);
+            imageView.setImageResource(optionsImg[j]);
+
+            cardView.addView(imageView);
 
             TextView text = new TextView(this);
             text.setText(options[j]);

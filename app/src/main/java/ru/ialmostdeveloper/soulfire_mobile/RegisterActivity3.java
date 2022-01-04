@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,7 +20,8 @@ import java.util.Set;
 
 public class RegisterActivity3 extends AppCompatActivity {
 
-    private final String[] options = {"Побег от действительности", "Избегание близких отношений", "Поиск признания", "Инфантилизм"};
+    private final String[] options = {"Побег от действительности", "Избегание близких отношений", "Поиск признания", "Накручивание мыслей"};
+    private final int[] optionsImg = {R.drawable.reality_escape, R.drawable.relations_escape, R.drawable.acceptance_search, R.drawable.obsessional_thoughts};
     private final ArrayList<String> selectedOptions = new ArrayList<String>();
 
     @Override
@@ -28,22 +30,12 @@ public class RegisterActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_register3);
         SharedPreferences sprefs = this.getSharedPreferences("ru.ialmostdeveloper.soulfire_mobile", Context.MODE_PRIVATE);
 
-//        Set<String> optionsSet = sprefs.getStringSet("userAutoThoughts", new HashSet<>());
-//        LinearLayout card_layout = findViewById(R.id.card_layout2);
-//        for (int i=0;i<optionsSet.size();i++){
-//            TextView textView = new TextView(this);
-//            textView.setText(optionsSet.toArray()[i].toString());
-//            card_layout.addView(textView);
-//        }
-
-
         LinearLayout card_layout = findViewById(R.id.card_layout);
         for (int i = 0; i < options.length; i++) {
             CardView cardView = new CardView(this);
 
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, // CardView width
-                    LinearLayout.LayoutParams.WRAP_CONTENT // CardView height
+                    400,400// CardView height
             );
             final int j = i;
             layoutParams.setMargins(20, 20, 20, 20);
@@ -67,6 +59,11 @@ public class RegisterActivity3 extends AppCompatActivity {
                     cardView.setBackgroundResource(0);
                 }
             });
+
+            ImageView imageView = new ImageView(this);
+            imageView.setImageResource(optionsImg[j]);
+
+            cardView.addView(imageView);
 
             TextView text = new TextView(this);
             text.setText(options[j]);

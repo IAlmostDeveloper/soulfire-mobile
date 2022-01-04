@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
         btn_register.setOnClickListener(v -> startActivity(new Intent(self, RegisterActivity1.class)));
 
         btn_login.setOnClickListener(v -> {
-
+            startActivity(new Intent(self, SignInActivity.class));
         });
     }
 }

@@ -3,11 +3,13 @@ package ru.ialmostdeveloper.soulfire_mobile;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -23,6 +25,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import ru.ialmostdeveloper.soulfire_mobile.network.ApiClient;
 import ru.ialmostdeveloper.soulfire_mobile.network.SessionManager;
+import ru.ialmostdeveloper.soulfire_mobile.network.UserCredentials;
+import ru.ialmostdeveloper.soulfire_mobile.network.models.SignInRequest;
+import ru.ialmostdeveloper.soulfire_mobile.network.models.SignInResponse;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.SignUpRequest;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.SignUpResponse;
 
@@ -35,11 +40,14 @@ public class RegisterActivity5 extends AppCompatActivity {
     private SessionManager sessionManager;
     private ApiClient apiClient;
 
+    private Context self;
+    SharedPreferences sprefs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register5);
-        SharedPreferences sprefs = this.getSharedPreferences("ru.ialmostdeveloper.soulfire_mobile", Context.MODE_PRIVATE);
+        self = this;
+        sprefs = this.getSharedPreferences("ru.ialmostdeveloper.soulfire_mobile", Context.MODE_PRIVATE);
         apiClient = new ApiClient();
         sessionManager = new SessionManager(this);
         btn_register = findViewById(R.id.signUpButton);
@@ -74,6 +82,28 @@ public class RegisterActivity5 extends AppCompatActivity {
                     public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
                         SignUpResponse loginResponse = response.body();
                         RequestBody rq = call.request().body();
+                        if (response.isSuccessful()){
+
+                            apiClient.getApiService().login(new SignInRequest(username, password)).enqueue(new Callback<SignInResponse>() {
+                                @Override
+                                public void onResponse(Call<SignInResponse> call, Response<SignInResponse> response) {
+                                    SignInResponse signInResponse = response.body();
+                                    Toast.makeText(self, "Успешная регистрация", Toast.LENGTH_SHORT).show();
+
+                                    assert signInResponse != null;
+                                    sessionManager.saveUserCredentials(new UserCredentials(signInResponse.getUsername(),
+                                            signInResponse.getUserId(), signInResponse.getToken()));
+                                    sprefs.edit().putBoolean("isUserLoggedIn", true).apply();
+                                    startActivity(new Intent(self, MainActivity.class));
+                                }
+
+                                @Override
+                                public void onFailure(Call<SignInResponse> call, Throwable t) {
+
+                                }
+                            });
+
+                        }
                     }
 
                     @Override
@@ -81,6 +111,7 @@ public class RegisterActivity5 extends AppCompatActivity {
                         String loginResponse = t.getMessage();
                         RequestBody rq = call.request().body();
                         HttpUrl url = call.request().url();
+                        Toast.makeText(self, t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

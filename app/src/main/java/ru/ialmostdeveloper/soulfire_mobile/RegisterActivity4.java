@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ import java.util.Set;
 public class RegisterActivity4 extends AppCompatActivity {
 
     private final String[] options = {"Я непривлекателен", "Мне не везет", "Я скучен", "Мое мнение не имеет значения"};
+    private final int[] optionsImg = {R.drawable.forever_alone, R.drawable.weak_voice, R.drawable.nobody_cares, R.drawable.tremor};
     private final ArrayList<String> selectedOptions = new ArrayList<String>();
 
     @Override
@@ -33,8 +35,7 @@ public class RegisterActivity4 extends AppCompatActivity {
             CardView cardView = new CardView(this);
 
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, // CardView width
-                    LinearLayout.LayoutParams.WRAP_CONTENT // CardView height
+                    400, 400// CardView height
             );
             final int j = i;
             layoutParams.setMargins(20, 20, 20, 20);
@@ -58,6 +59,11 @@ public class RegisterActivity4 extends AppCompatActivity {
                     cardView.setBackgroundResource(0);
                 }
             });
+
+            ImageView imageView = new ImageView(this);
+            imageView.setImageResource(optionsImg[j]);
+
+            cardView.addView(imageView);
 
             TextView text = new TextView(this);
             text.setText(options[j]);
