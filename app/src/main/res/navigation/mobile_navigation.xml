@@ -3,35 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_sign_in">
+    app:startDestination="@+id/navigation_diary">
 
     <fragment
-        android:id="@+id/navigation_sign_in"
-        android:name="ru.ialmostdeveloper.soulfire_mobile.ui.SignInFragment"
-        android:label="@string/title_sign_in"
-        tools:layout="@layout/fragment_sign_in" />
+        android:id="@+id/navigation_diary"
+        android:name="ru.ialmostdeveloper.soulfire_mobile.DiaryFragment"
+        android:label="Дневник"
+        tools:layout="@layout/fragment_diary" />
 
     <fragment
-        android:id="@+id/navigation_sign_up"
-        android:name="ru.ialmostdeveloper.soulfire_mobile.ui.SignUpFragment"
-        android:label="@string/title_sign_up"
-        tools:layout="@layout/fragment_sign_up" />
+        android:id="@+id/navigation_achievements"
+        android:name="ru.ialmostdeveloper.soulfire_mobile.AchievementsFragment"
+        android:label="Достижения"
+        tools:layout="@layout/fragment_achievements" />
 
     <fragment
-        android:id="@+id/navigation_daily_achievements"
-        android:name="ru.ialmostdeveloper.soulfire_mobile.ui.DailyAchievementsFragment"
-        android:label="@string/title_daily_achievements"
-        tools:layout="@layout/fragment_daily_achievements" />
-
-    <fragment
-        android:id="@+id/navigation_user_achievements"
-        android:name="ru.ialmostdeveloper.soulfire_mobile.ui.UserAchievementsFragment"
-        android:label="@string/title_user_achievements"
-        tools:layout="@layout/fragment_user_achievements" />
-
-    <fragment
-        android:id="@+id/navigation_quiz"
-        android:name="ru.ialmostdeveloper.soulfire_mobile.ui.RegisterFragment1"
-        android:label="@string/title_quiz"
-        tools:layout="@layout/fragment_quiz" />
+        android:id="@+id/navigation_profile"
+        android:name="ru.ialmostdeveloper.soulfire_mobile.ProfileFragment"
+        android:label="Профиль"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

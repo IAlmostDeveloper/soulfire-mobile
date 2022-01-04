@@ -2,27 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_sign_in"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_sign_in" />
+        android:id="@+id/navigation_diary"
+        android:icon="@drawable/diary"
+        android:title="Дневник" />
 
     <item
-        android:id="@+id/navigation_sign_up"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_sign_up" />
+        android:id="@+id/navigation_achievements"
+        android:icon="@drawable/achievements"
+        android:title="Достижения" />
 
     <item
-        android:id="@+id/navigation_daily_achievements"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_daily_achievements" />
-    <item
-        android:id="@+id/navigation_user_achievements"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_daily_achievements" />
-    <item
-        android:id="@+id/navigation_quiz"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_quiz" />
-
-
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/profile"
+        android:title="Профиль" />
 </menu>
