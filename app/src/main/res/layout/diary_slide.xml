@@ -43,25 +43,4 @@
 
     </LinearLayout>
 
-
-    <LinearLayout
-        android:id="@+id/answer_buttons_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/skip_answer_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Пропустить"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/next_question_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Далее" />
-    </LinearLayout>
-
 </LinearLayout>

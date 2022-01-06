@@ -5,14 +5,12 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,7 +20,6 @@ import ru.ialmostdeveloper.soulfire_mobile.network.SessionManager;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.AddDiaryNoteRequest;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryNote;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryNoteResponse;
-import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryQuestion;
 
 public class AddDiaryNoteActivity extends AppCompatActivity {
 
@@ -45,6 +42,25 @@ public class AddDiaryNoteActivity extends AppCompatActivity {
         diarySlideAdapter = new DiarySlideAdapter(this);
         viewPager.setAdapter(diarySlideAdapter);
 
+        Button skipQuestionBtn = findViewById(R.id.skip_answer_btn);
+        Button nextQuestionBtn = findViewById(R.id.next_question_btn);
+
+        AtomicInteger currentItem = new AtomicInteger(viewPager.getCurrentItem());
+        if (diarySlideAdapter.questions[viewPager.getCurrentItem()].getCanSkip()) {
+            skipQuestionBtn.setVisibility(View.VISIBLE);
+            skipQuestionBtn.setOnClickListener(v -> {
+                viewPager.setCurrentItem(currentItem.incrementAndGet());
+            });
+        }
+
+        skipQuestionBtn.setOnClickListener(v -> {
+            // тут сохранить ответ
+            viewPager.setCurrentItem(currentItem.incrementAndGet());
+        });
+        nextQuestionBtn.setOnClickListener(v -> {
+            // тут сохранить ответ
+            viewPager.setCurrentItem(currentItem.incrementAndGet());
+        });
         //EditText note_title = findViewById(R.id.note_title);
         //EditText note_content = findViewById(R.id.note_content);
 
@@ -62,6 +78,7 @@ public class AddDiaryNoteActivity extends AppCompatActivity {
 
 
     }
+
 
     private void addDiaryNote(DiaryNote diaryNote) {
         AddDiaryNoteRequest addDiaryNoteRequest = new AddDiaryNoteRequest(

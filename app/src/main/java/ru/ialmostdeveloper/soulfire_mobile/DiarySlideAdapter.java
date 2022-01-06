@@ -56,8 +56,7 @@ public class DiarySlideAdapter extends PagerAdapter {
         Slider inputType2 = view.findViewById(R.id.input_type2);
         LinearLayout inputType3 = view.findViewById(R.id.input_type3);
 
-        Button skipQuestionBtn = view.findViewById(R.id.skip_answer_btn);
-        Button nextQuestionBtn = view.findViewById(R.id.next_question_btn);
+
 
         switch (questions[position].getType()) {
             case 1:
@@ -77,18 +76,7 @@ public class DiarySlideAdapter extends PagerAdapter {
                 break;
         }
 
-        AtomicInteger _position = new AtomicInteger(position);
-        if (questions[position].getCanSkip()) {
-            skipQuestionBtn.setVisibility(View.VISIBLE);
-            skipQuestionBtn.setOnClickListener(v -> {
-                instantiateItem(container, _position.getAndIncrement());
-            });
-        }
 
-        nextQuestionBtn.setOnClickListener(v -> {
-            // тут сохранить ответ
-            instantiateItem(container, _position.getAndIncrement());
-        });
         container.addView(view);
         return view;
     }
