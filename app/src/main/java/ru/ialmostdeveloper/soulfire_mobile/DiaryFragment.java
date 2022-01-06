@@ -64,7 +64,7 @@ public class DiaryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view =  inflater.inflate(R.layout.fragment_diary, container, false);
+        view = inflater.inflate(R.layout.fragment_diary, container, false);
         Button btn_addnote = view.findViewById(R.id.btn_add_note);
         btn_addnote.setOnClickListener(v -> {
             startActivity(new Intent(this.requireActivity(), AddDiaryNoteActivity.class));
@@ -75,7 +75,7 @@ public class DiaryFragment extends Fragment {
         return view;
     }
 
-    private DiaryNote[] getDiaryNotes(){
+    private DiaryNote[] getDiaryNotes() {
         final DiaryNote[][] diaryNotes = {{}};
         String token = "Bearer " + sessionManager.fetchAuthToken();
         String userId = sessionManager.fetchUserId();
@@ -90,11 +90,11 @@ public class DiaryFragment extends Fragment {
                         diaryNotes[0] = response.body().getContent();
 
                         LinearLayout notes_layout = view.findViewById(R.id.notes_layout);
-                        for (int i=0; i< diaryNotes[0].length; i++){
+                        for (int i = 0; i < diaryNotes[0].length; i++) {
                             CardView cardView = new CardView(self);
-
+                            DiaryNote diaryNote = diaryNotes[0][i];
                             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                                    400,400 // CardView height
+                                    400, 400 // CardView height
                             );
                             layoutParams.setMargins(20, 20, 20, 20);
                             cardView.setLayoutParams(layoutParams);
@@ -105,15 +105,20 @@ public class DiaryFragment extends Fragment {
                             cardView.setCardElevation(8F);
                             cardView.setMaxCardElevation(12F);
                             cardView.setOnClickListener(v -> {
-                                // Начать тут редактирование
+                                Intent intent = new Intent(self, EditDiaryNoteActivity.class);
+                                intent.putExtra("id", diaryNote.getId());
+                                intent.putExtra("title", diaryNote.getTitle());
+                                intent.putExtra("content", diaryNote.getContent());
+
+                                startActivity(intent);
                             });
 
                             TextView text = new TextView(self);
-                            text.setText(diaryNotes[0][i].getTitle());
+                            text.setText(diaryNote.getTitle());
 
                             cardView.addView(text);
                             TextView content = new TextView(self);
-                            content.setText(diaryNotes[0][i].getContent());
+                            content.setText(diaryNote.getContent());
                             content.setGravity(Gravity.CENTER);
                             cardView.addView(content);
                             notes_layout.addView(cardView);
