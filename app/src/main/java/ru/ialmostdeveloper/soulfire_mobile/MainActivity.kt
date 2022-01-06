@@ -24,7 +24,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val sprefs = getSharedPreferences("ru.ialmostdeveloper.soulfire_mobile", MODE_PRIVATE)
         //setContentView(R.layout.activity_main)
+        val isLoggedIn = sprefs.getBoolean("isUserLoggedIn", false);
+        if (!isLoggedIn){
+            startActivity(Intent(this, LoginActivity::class.java))
+            return
+        }
 
         var inflater = layoutInflater
         binding = ActivityMainBinding.inflate(inflater)
@@ -40,13 +46,11 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        val sprefs = getSharedPreferences("ru.ialmostdeveloper.soulfire_mobile", MODE_PRIVATE)
+
 
         apiClient = ApiClient()
         sessionManager = SessionManager(this)
 
-        val isLoggedIn = sprefs.getBoolean("isUserLoggedIn", false);
-        if (!isLoggedIn)
-            startActivity(Intent(this, LoginActivity::class.java))
+
     }
 }

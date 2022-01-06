@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Soulfiremobile">
         <activity
+            android:name=".EditDiaryNoteActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddDiaryNoteActivity"
             android:exported="false" />
         <activity
