@@ -18,7 +18,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Objects;
 
 import retrofit2.Call;
@@ -90,9 +93,30 @@ public class DiaryFragment extends Fragment {
                         diaryNotes[0] = response.body().getContent();
 
                         LinearLayout notes_layout = view.findViewById(R.id.notes_layout);
+                        String currentDate = "";
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
+
                         for (int i = 0; i < diaryNotes[0].length; i++) {
-                            CardView cardView = new CardView(self);
                             DiaryNote diaryNote = diaryNotes[0][i];
+
+
+                            LocalDate date = LocalDate.parse(diaryNote.getUpdatedDate().substring(0, 10), formatter);
+                            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMMM yyyy", new Locale("ru"));
+
+                            if (!currentDate.equals(date.format(formatter))) {
+                                currentDate = diaryNote.getUpdatedDate().substring(0, 10);
+                                TextView dateView = new TextView(self);
+                                dateView.setText(date.format(dtf));
+                                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                                        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT // CardView height
+                                );
+                                dateView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                                dateView.setLayoutParams(layoutParams);
+                                notes_layout.addView(dateView);
+                            }
+
+                            CardView cardView = new CardView(self);
+
                             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                                     400, 400 // CardView height
                             );
