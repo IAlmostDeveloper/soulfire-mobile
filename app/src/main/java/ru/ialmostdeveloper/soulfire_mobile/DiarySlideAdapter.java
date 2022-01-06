@@ -16,6 +16,7 @@ import com.google.android.material.slider.Slider;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryAnswer;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryQuestion;
 
 public class DiarySlideAdapter extends PagerAdapter {
@@ -39,10 +40,14 @@ public class DiarySlideAdapter extends PagerAdapter {
             new DiaryQuestion(1, "Что я теперь сделаю?", true, null)
     };
 
+    public DiaryAnswer[] answers = new DiaryAnswer[questions.length];
+
     public DiarySlideAdapter(Context context) {
         this.context = context;
     }
-
+    public EditText inputType1;
+    public Slider inputType2 ;
+    public LinearLayout inputType3;
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
@@ -52,9 +57,9 @@ public class DiarySlideAdapter extends PagerAdapter {
         TextView questionText = view.findViewById(R.id.diary_question_label);
         questionText.setText(questions[position].getContent());
 
-        EditText inputType1 = view.findViewById(R.id.input_type1);
-        Slider inputType2 = view.findViewById(R.id.input_type2);
-        LinearLayout inputType3 = view.findViewById(R.id.input_type3);
+         inputType1 = view.findViewById(R.id.input_type1);
+        inputType2 = view.findViewById(R.id.input_type2);
+         inputType3 = view.findViewById(R.id.input_type3);
 
 
 

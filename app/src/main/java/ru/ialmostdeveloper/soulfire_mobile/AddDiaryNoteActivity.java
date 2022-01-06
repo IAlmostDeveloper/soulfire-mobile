@@ -1,5 +1,7 @@
 package ru.ialmostdeveloper.soulfire_mobile;
 
+import static android.view.View.GONE;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -7,8 +9,11 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -18,6 +23,7 @@ import retrofit2.Response;
 import ru.ialmostdeveloper.soulfire_mobile.network.ApiClient;
 import ru.ialmostdeveloper.soulfire_mobile.network.SessionManager;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.AddDiaryNoteRequest;
+import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryAnswer;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryNote;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryNoteResponse;
 
@@ -54,12 +60,54 @@ public class AddDiaryNoteActivity extends AppCompatActivity {
         }
 
         skipQuestionBtn.setOnClickListener(v -> {
-            // тут сохранить ответ
-            viewPager.setCurrentItem(currentItem.incrementAndGet());
+            if (currentItem.get() == diarySlideAdapter.questions.length - 2) {
+                skipQuestionBtn.setVisibility(GONE);
+                nextQuestionBtn.setText("Готово");
+            } else if (currentItem.get() == diarySlideAdapter.questions.length - 1) {
+                Toast.makeText(self, "Готово", Toast.LENGTH_SHORT).show();
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                LocalDateTime now = LocalDateTime.now();
+                String updatedDate = now.format(dtf);
+                addDiaryNote(new DiaryNote("", Objects.requireNonNull(sessionManager.fetchUserId()),
+                        diarySlideAdapter.answers[0].getStringContent(), diarySlideAdapter.answers[1].getStringContent(), updatedDate));
+            } else {
+                switch (diarySlideAdapter.questions[viewPager.getCurrentItem()].getType()) {
+                    case 1:
+                        diarySlideAdapter.answers[viewPager.getCurrentItem()] =
+                                new DiaryAnswer(1, diarySlideAdapter.questions[viewPager.getCurrentItem()].getContent(),
+                                        diarySlideAdapter.inputType1.getText().toString(), null, null);
+                    default:
+                        break;
+                }
+                viewPager.setCurrentItem(currentItem.incrementAndGet());
+            }
         });
         nextQuestionBtn.setOnClickListener(v -> {
-            // тут сохранить ответ
-            viewPager.setCurrentItem(currentItem.incrementAndGet());
+            if (currentItem.get() == diarySlideAdapter.questions.length - 2) {
+                skipQuestionBtn.setVisibility(GONE);
+                nextQuestionBtn.setText("Готово");
+                viewPager.setCurrentItem(currentItem.incrementAndGet());
+            } else if (currentItem.get() == diarySlideAdapter.questions.length - 1) {
+                Toast.makeText(self, "Готово", Toast.LENGTH_SHORT).show();
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                LocalDateTime now = LocalDateTime.now();
+                String updatedDate = now.format(dtf);
+                addDiaryNote(new DiaryNote("", Objects.requireNonNull(sessionManager.fetchUserId()),
+                        diarySlideAdapter.answers[0].getStringContent(), diarySlideAdapter.answers[1].getStringContent(), updatedDate));
+            } else {
+                switch (diarySlideAdapter.questions[viewPager.getCurrentItem()].getType()) {
+                    case 1:
+                        EditText inputType1 = viewPager.findViewById(R.id.input_type1);
+                        String content = inputType1.getText().toString();
+                        DiaryAnswer diaryAnswer = new DiaryAnswer(1, diarySlideAdapter.questions[viewPager.getCurrentItem()].getContent(),
+                             content   , null, null);
+                        diarySlideAdapter.answers[viewPager.getCurrentItem()] = diaryAnswer;
+
+                    default:
+                        break;
+                }
+                viewPager.setCurrentItem(currentItem.incrementAndGet());
+            }
         });
         //EditText note_title = findViewById(R.id.note_title);
         //EditText note_content = findViewById(R.id.note_content);
