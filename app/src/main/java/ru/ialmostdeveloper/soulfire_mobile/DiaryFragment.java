@@ -18,6 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -48,7 +50,6 @@ public class DiaryFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     public static DiaryFragment newInstance() {
         DiaryFragment fragment = new DiaryFragment();
         Bundle args = new Bundle();
@@ -73,7 +74,6 @@ public class DiaryFragment extends Fragment {
             startActivity(new Intent(this.requireActivity(), AddDiaryNoteActivity.class));
         });
         DiaryNote[] diaryNotes = getDiaryNotes();
-
 
         return view;
     }

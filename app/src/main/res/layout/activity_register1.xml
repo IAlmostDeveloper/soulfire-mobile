@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity1">
+
     <TextView
         android:id="@+id/welcome_label"
         android:layout_width="match_parent"
@@ -13,8 +14,19 @@
         android:textStyle="bold"
         android:elevation="2dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Привет! Мы ещё не знакомы, поэтому, как мне лучше тебя называть?"
-        android:background="@color/purple_500"/>
+        android:textAlignment="center"
+        android:text="Привет!"/>
+
+    <TextView
+        android:id="@+id/welcome_label2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:elevation="2dp"
+        app:layout_constraintTop_toBottomOf="@id/welcome_label"
+        android:textAlignment="center"
+        android:text="Мы ещё не знакомы, поэтому, как мне лучше тебя называть?" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager"

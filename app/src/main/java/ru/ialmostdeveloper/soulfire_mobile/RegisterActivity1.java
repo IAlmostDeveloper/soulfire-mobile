@@ -25,7 +25,6 @@ public class RegisterActivity1 extends AppCompatActivity {
         SharedPreferences sprefs = this.getSharedPreferences("ru.ialmostdeveloper.soulfire_mobile", Context.MODE_PRIVATE);
 
 
-
         btn_welcome.setOnClickListener(v -> {
             sprefs
                     .edit()
@@ -33,7 +32,6 @@ public class RegisterActivity1 extends AppCompatActivity {
                     .apply();
             startActivity(new Intent(this, RegisterActivity2.class));
         });
-
 
 
     }

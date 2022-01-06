@@ -25,9 +25,11 @@ public class ProfileFragment extends Fragment {
 
 
     private SessionManager sessionManager;
+
     public ProfileFragment() {
         // Required empty public constructor
     }
+
     public static ProfileFragment newInstance() {
         ProfileFragment fragment = new ProfileFragment();
         Bundle args = new Bundle();
@@ -51,9 +53,10 @@ public class ProfileFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         TextView profile_label = view.findViewById(R.id.greetings_label);
-        profile_label.setText(sessionManager.fetchUserName());
+        profile_label.setText("Твой логин: " + sessionManager.fetchUserName());
+
         Button logout_btn = view.findViewById(R.id.logout_btn);
-        logout_btn.setOnClickListener(v->  {
+        logout_btn.setOnClickListener(v -> {
             Toast.makeText(this.requireActivity(), "разлогиниваюсь", Toast.LENGTH_SHORT).show();
             sprefs.edit().putBoolean("isUserLoggedIn", false).apply();
             startActivity(new Intent(this.requireActivity(), LoginActivity.class));
