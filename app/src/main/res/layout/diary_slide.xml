@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/slidelinearlayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/diary_question_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        android:text="asdasdasdasdsad"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/input_type1"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:textAlignment="center"
+        android:visibility="gone" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/input_type2"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:tooltipText="Насколько я в это верю?"
+        android:value="50"
+        android:valueFrom="0"
+        android:valueTo="100"
+        app:thumbColor="@color/white"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/input_type3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/answer_buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/skip_answer_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Пропустить"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/next_question_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Далее" />
+    </LinearLayout>
+
+</LinearLayout>

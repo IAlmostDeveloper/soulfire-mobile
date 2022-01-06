@@ -1,6 +1,7 @@
 package ru.ialmostdeveloper.soulfire_mobile;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -21,34 +22,43 @@ import ru.ialmostdeveloper.soulfire_mobile.network.SessionManager;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.AddDiaryNoteRequest;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryNote;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryNoteResponse;
+import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryQuestion;
 
 public class AddDiaryNoteActivity extends AppCompatActivity {
 
     private SessionManager sessionManager;
     private ApiClient apiClient;
-private Context self;
+    private Context self;
+
+    private ViewPager viewPager;
+    private DiarySlideAdapter diarySlideAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_diary_note);
-self = this;
+        self = this;
         sessionManager = new SessionManager(this);
         apiClient = new ApiClient();
 
-        EditText note_title = findViewById(R.id.note_title);
-        EditText note_content = findViewById(R.id.note_content);
+        viewPager = findViewById(R.id.viewpager);
+        diarySlideAdapter = new DiarySlideAdapter(this);
+        viewPager.setAdapter(diarySlideAdapter);
 
-        Button btn_addNote = findViewById(R.id.btn_add_note);
-        btn_addNote.setOnClickListener(v -> {
-            String title = note_title.getText().toString();
-            String content = note_content.getText().toString();
+        //EditText note_title = findViewById(R.id.note_title);
+        //EditText note_content = findViewById(R.id.note_content);
 
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            LocalDateTime now = LocalDateTime.now();
-            String updatedDate = now.format(dtf);
-            DiaryNote diaryNote = new DiaryNote("", Objects.requireNonNull(sessionManager.fetchUserId()), title, content, updatedDate);
-            addDiaryNote(diaryNote);
-        });
+//        Button btn_addNote = findViewById(R.id.btn_add_note);
+//        btn_addNote.setOnClickListener(v -> {
+//            //String title = note_title.getText().toString();
+//            //String content = note_content.getText().toString();
+//
+//            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//            LocalDateTime now = LocalDateTime.now();
+//            String updatedDate = now.format(dtf);
+//            DiaryNote diaryNote = new DiaryNote("", Objects.requireNonNull(sessionManager.fetchUserId()), title, content, updatedDate);
+//            addDiaryNote(diaryNote);
+//        });
 
 
     }
@@ -59,7 +69,7 @@ self = this;
         );
         apiClient
                 .getApiService()
-                .addDiaryNote(Objects.requireNonNull("Bearer " + sessionManager.fetchAuthToken()), addDiaryNoteRequest)
+                .addDiaryNote("Bearer " + sessionManager.fetchAuthToken(), addDiaryNoteRequest)
                 .enqueue(new Callback<DiaryNoteResponse>() {
                     @Override
                     public void onResponse(Call<DiaryNoteResponse> call, Response<DiaryNoteResponse> response) {
