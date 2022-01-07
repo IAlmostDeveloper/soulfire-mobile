@@ -15,15 +15,6 @@ interface APIService {
     @POST(Constants.REGISTER_URL)
     fun register(@Body request: SignUpRequest): Call<SignUpResponse>
 
-    @GET(Constants.ACHIEVEMENTS_URL)
-    fun getAchievements(@Header("Authorization") token: String): Call<AchievementsResponse>
-
-    @GET(Constants.USER_ACHIEVEMENTS_URL)
-    fun getUserAchievements(
-        @Header("Authorization") token: String,
-        @Path("id") id: String
-    ): Call<UserAchievementsResponse>
-
     @GET(Constants.GET_DIARY_NOTES_URL)
     fun getDiaryNotes(
         @Header("Authorization") token: String,
@@ -48,4 +39,29 @@ interface APIService {
         @Header("Authorization") token: String,
         @Path("id") id: String
     ): Call<DiaryNoteResponse>
+
+    @GET(Constants.GET_USER_ACHIEVEMENTS_URL)
+    fun getUserAchievements(
+        @Header("Authorization") token: String,
+        @Path("id") id: String
+    ): Call<UserAchievementsResponse>
+
+    @POST(Constants.ADD_USER_ACHIEVEMENT_URL)
+    fun addUserAchievement(
+        @Header("Authorization") token: String,
+        @Body userAchievement: UserAchievement
+    ): Call<UserAchievementResponse>
+
+    @PATCH(Constants.UPDATE_USER_ACHIEVEMENT_URL)
+    fun updateUserAchievement(
+        @Header("Authorization") token: String,
+        @Path("id") id: String,
+        @Body userAchievement: UserAchievement
+    ): Call<UserAchievementResponse>
+
+    @DELETE(Constants.DELETE_USER_ACHIEVEMENT_URL)
+    fun deleteUserAchievement(
+        @Header("Authorization") token: String,
+        @Path("id") id: String
+    ): Call<UserAchievementResponse>
 }

@@ -9,13 +9,12 @@ data class UserAchievement (
 
     @SerializedName("userId")
     var userId: String,
-
-    @SerializedName("achievementId")
-    var achievementId: String,
-
-    @SerializedName("date")
-    var date: String,
-
-    @SerializedName("achievement")
-    var achievement: Achievement
+    @SerializedName("title")
+    var title: String,
+    @SerializedName("content")
+    var content: String,
+    @SerializedName("description")
+    var description: String,
+    @SerializedName("updatedDate")
+    var updatedDate: String,
 )

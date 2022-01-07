@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Soulfiremobile">
         <activity
+            android:name=".EditUserAchievementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddUserAchievementActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditDiaryNoteActivity"
             android:exported="false" />
         <activity
