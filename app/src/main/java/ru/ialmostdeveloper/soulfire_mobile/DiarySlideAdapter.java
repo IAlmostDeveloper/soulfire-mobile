@@ -88,6 +88,11 @@ public class DiarySlideAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+        EditText inputType1 = ((LinearLayout) object).findViewById(R.id.input_type1);
+        String answer = inputType1.getText().toString();
+        DiaryAnswer diaryAnswer = new DiaryAnswer(1, questions[position].getContent(),
+                answer  , null, null);
+        answers[position] = diaryAnswer;
         container.removeView((LinearLayout) object);
     }
 

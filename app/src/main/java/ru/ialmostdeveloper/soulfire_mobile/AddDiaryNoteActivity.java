@@ -95,17 +95,20 @@ public class AddDiaryNoteActivity extends AppCompatActivity {
                 addDiaryNote(new DiaryNote("", Objects.requireNonNull(sessionManager.fetchUserId()),
                         diarySlideAdapter.answers[0].getStringContent(), diarySlideAdapter.answers[1].getStringContent(), updatedDate));
             } else {
-                switch (diarySlideAdapter.questions[viewPager.getCurrentItem()].getType()) {
-                    case 1:
-                        EditText inputType1 = viewPager.findViewById(R.id.input_type1);
-                        String content = inputType1.getText().toString();
-                        DiaryAnswer diaryAnswer = new DiaryAnswer(1, diarySlideAdapter.questions[viewPager.getCurrentItem()].getContent(),
-                             content   , null, null);
-                        diarySlideAdapter.answers[viewPager.getCurrentItem()] = diaryAnswer;
-
-                    default:
-                        break;
-                }
+//                //switch (diarySlideAdapter.questions[viewPager.getCurrentItem()].getType()) {
+//                    case 1:
+//
+//                        //EditText inputType1 = null;
+//                        //inputType1 = viewPager.findViewById(R.id.input_type1);
+//
+//                        //String content = inputType1.getText().toString();
+//                        //DiaryAnswer diaryAnswer = new DiaryAnswer(1, diarySlideAdapter.questions[viewPager.getCurrentItem()].getContent(),
+//                        //     content   , null, null);
+//                        //diarySlideAdapter.answers[viewPager.getCurrentItem()] = diaryAnswer;
+//
+//                    default:
+//                        break;
+//                }
                 viewPager.setCurrentItem(currentItem.incrementAndGet());
             }
         });
