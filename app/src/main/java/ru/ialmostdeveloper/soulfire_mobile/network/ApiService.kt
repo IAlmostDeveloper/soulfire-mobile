@@ -66,17 +66,30 @@ interface APIService {
     ): Call<UserAchievementResponse>
 
     @GET(Constants.GET_USER_PRESETS_URL)
-    fun getUserPresets()
+    fun getUserPresets(
+        @Header("Authorization") token: String,
+        @Path("id") id: String
+    ): Call<PresetsResponse>
 
     @GET(Constants.GET_ALL_PRESETS_URL)
-    fun getAllPresets()
+    fun getAllPresets(@Header("Authorization") token: String): Call<PresetsResponse>
 
     @POST(Constants.ADD_USER_PRESET_URL)
-    fun addUserPreset()
+    fun addUserPreset(
+        @Header("Authorization") token: String,
+        @Body preset: Preset
+    ): Call<PresetResponse>
 
     @PATCH(Constants.UPDATE_USER_PRESET_URL)
-    fun updateUserPreset()
+    fun updateUserPreset(
+        @Header("Authorization") token: String,
+        @Path("id") id: String,
+        @Body preset: Preset
+    ): Call<PresetResponse>
 
     @DELETE(Constants.DELETE_USER_PRESET_URL)
-    fun deleteUserPreset()
+    fun deleteUserPreset(
+        @Header("Authorization") token: String,
+        @Path("id") id: String
+    ): Call<PresetResponse>
 }
