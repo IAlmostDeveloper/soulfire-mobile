@@ -3,7 +3,7 @@ package ru.ialmostdeveloper.soulfire_mobile
 object Constants {
 
     // Endpoints
-    const val BASE_URL = "https://9c6c-188-17-163-69.ngrok.io/api/"
+    const val BASE_URL = "https://8c65-188-17-163-69.ngrok.io/api/"
     const val LOGIN_URL = "auth/login"
     const val REGISTER_URL = "auth/register"
 
@@ -16,5 +16,11 @@ object Constants {
     const val ADD_USER_ACHIEVEMENT_URL = "user/achievements"
     const val UPDATE_USER_ACHIEVEMENT_URL = "user/achievements/{id}"
     const val DELETE_USER_ACHIEVEMENT_URL = "user/achievements/{id}"
+
+    const val GET_USER_PRESETS_URL = "presets/{id}"
+    const val GET_ALL_PRESETS_URL = "presets"
+    const val ADD_USER_PRESET_URL = "presets"
+    const val UPDATE_USER_PRESET_URL = "presets/{id}"
+    const val DELETE_USER_PRESET_URL = "presets/{id}"
 
 }

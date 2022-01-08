@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_diary" />
 
     <fragment
+        android:id="@+id/navigation_presets"
+        android:name="ru.ialmostdeveloper.soulfire_mobile.PresetsFragment"
+        android:label="Установки"
+        tools:layout="@layout/fragment_presets" />
+
+    <fragment
         android:id="@+id/navigation_achievements"
         android:name="ru.ialmostdeveloper.soulfire_mobile.AchievementsFragment"
         android:label="Достижения"

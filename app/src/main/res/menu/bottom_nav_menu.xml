@@ -7,6 +7,11 @@
         android:title="Дневник" />
 
     <item
+        android:id="@+id/navigation_presets"
+        android:icon="@drawable/presets"
+        android:title="Установки" />
+
+    <item
         android:id="@+id/navigation_achievements"
         android:icon="@drawable/achievements"
         android:title="Достижения" />

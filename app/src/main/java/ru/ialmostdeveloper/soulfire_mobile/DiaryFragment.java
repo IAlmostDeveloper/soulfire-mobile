@@ -90,7 +90,7 @@ public class DiaryFragment extends Fragment {
                     public void onResponse(Call<DiaryNotesResponse> call, Response<DiaryNotesResponse> response) {
                         DiaryNotesResponse body = response.body();
                         Toast.makeText(self, "Notes get success", Toast.LENGTH_SHORT).show();
-                        diaryNotes[0] = response.body().getContent();
+                         diaryNotes[0] = response.body().getContent();
 
                         LinearLayout notes_layout = view.findViewById(R.id.notes_layout);
                         String currentDate = "";

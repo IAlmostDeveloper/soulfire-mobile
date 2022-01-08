@@ -64,4 +64,19 @@ interface APIService {
         @Header("Authorization") token: String,
         @Path("id") id: String
     ): Call<UserAchievementResponse>
+
+    @GET(Constants.GET_USER_PRESETS_URL)
+    fun getUserPresets()
+
+    @GET(Constants.GET_ALL_PRESETS_URL)
+    fun getAllPresets()
+
+    @POST(Constants.ADD_USER_PRESET_URL)
+    fun addUserPreset()
+
+    @PATCH(Constants.UPDATE_USER_PRESET_URL)
+    fun updateUserPreset()
+
+    @DELETE(Constants.DELETE_USER_PRESET_URL)
+    fun deleteUserPreset()
 }
