@@ -7,6 +7,11 @@
         android:title="Дневник" />
 
     <item
+        android:id="@+id/navigation_selfbeliefs"
+        android:icon="@drawable/selfbeliefs"
+        android:title="Убеждения" />
+
+    <item
         android:id="@+id/navigation_presets"
         android:icon="@drawable/presets"
         android:title="Установки" />

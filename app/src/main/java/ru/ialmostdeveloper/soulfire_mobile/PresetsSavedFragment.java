@@ -1,6 +1,7 @@
 package ru.ialmostdeveloper.soulfire_mobile;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -61,24 +62,14 @@ public class PresetsSavedFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_presets_saved, container, false);
 
+        Button addPresetBtn = view.findViewById(R.id.btn_add_preset);
+        addPresetBtn.setOnClickListener(v -> {
+            startActivity(new Intent(self, AddPresetActivity.class));
+        });
+
         getUserPresets();
 
         return view;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
     }
 
     private Preset[] getUserPresets() {

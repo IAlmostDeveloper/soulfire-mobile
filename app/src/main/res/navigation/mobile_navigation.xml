@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_diary" />
 
     <fragment
+        android:id="@+id/navigation_selfbeliefs"
+        android:name="ru.ialmostdeveloper.soulfire_mobile.SelfBelievesFragment"
+        android:label="Дневник"
+        tools:layout="@layout/fragment_self_believes" />
+
+    <fragment
         android:id="@+id/navigation_presets"
         android:name="ru.ialmostdeveloper.soulfire_mobile.PresetsFragment"
         android:label="Установки"

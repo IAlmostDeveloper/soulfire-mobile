@@ -39,9 +39,9 @@ public class PresetsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_presets, container, false);
-        ViewPager pager = (ViewPager) view.findViewById(R.id.viewpager);
+        ViewPager pager = view.findViewById(R.id.viewpager);
         pager.setAdapter(new PresetsAdapter(requireActivity().getSupportFragmentManager()));
-        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
+        TabLayout tabLayout = view.findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(pager);
         return view;
     }

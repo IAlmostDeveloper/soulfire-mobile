@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Soulfiremobile">
         <activity
+            android:name=".AddPresetActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditUserAchievementActivity"
             android:exported="false" />
         <activity

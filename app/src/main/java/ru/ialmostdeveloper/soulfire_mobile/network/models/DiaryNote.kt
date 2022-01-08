@@ -15,6 +15,5 @@ data class DiaryNote(
     @SerializedName("content")
     val content: String,
 
-    @SerializedName("updatedDate")
-    public val updatedDate: String,
+    @SerializedName("updatedDate") val updatedDate: String,
 )

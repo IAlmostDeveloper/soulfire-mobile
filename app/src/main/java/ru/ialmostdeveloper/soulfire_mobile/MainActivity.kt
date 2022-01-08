@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val sprefs = getSharedPreferences("ru.ialmostdeveloper.soulfire_mobile", MODE_PRIVATE)
         //setContentView(R.layout.activity_main)
-        val isLoggedIn = sprefs.getBoolean("isUserLoggedIn", false);
+        val isLoggedIn = sprefs.getBoolean("isUserLoggedIn", false)
         if (!isLoggedIn){
             startActivity(Intent(this, LoginActivity::class.java))
             return
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_diary, R.id.navigation_presets, R.id.navigation_achievements, R.id.navigation_profile
+                R.id.navigation_diary, R.id.navigation_selfbeliefs, R.id.navigation_presets, R.id.navigation_achievements, R.id.navigation_profile
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
