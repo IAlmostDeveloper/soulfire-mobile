@@ -1,4 +1,4 @@
-package ru.ialmostdeveloper.soulfire_mobile;
+package ru.ialmostdeveloper.soulfire_mobile.Fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import ru.ialmostdeveloper.soulfire_mobile.Activities.LoginActivity;
+import ru.ialmostdeveloper.soulfire_mobile.R;
 import ru.ialmostdeveloper.soulfire_mobile.network.SessionManager;
 
 /**

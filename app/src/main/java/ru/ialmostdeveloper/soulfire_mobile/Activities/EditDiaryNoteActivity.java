@@ -1,4 +1,4 @@
-package ru.ialmostdeveloper.soulfire_mobile;
+package ru.ialmostdeveloper.soulfire_mobile.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.widget.Toast;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import ru.ialmostdeveloper.soulfire_mobile.R;
 import ru.ialmostdeveloper.soulfire_mobile.network.ApiClient;
 import ru.ialmostdeveloper.soulfire_mobile.network.SessionManager;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryNoteResponse;

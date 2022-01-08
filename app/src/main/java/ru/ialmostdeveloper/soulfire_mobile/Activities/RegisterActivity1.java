@@ -1,4 +1,4 @@
-package ru.ialmostdeveloper.soulfire_mobile;
+package ru.ialmostdeveloper.soulfire_mobile.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -8,6 +8,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
+
+import ru.ialmostdeveloper.soulfire_mobile.R;
+import ru.ialmostdeveloper.soulfire_mobile.Adapters.SlideAdapter;
 
 public class RegisterActivity1 extends AppCompatActivity {
 

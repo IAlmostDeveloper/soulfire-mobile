@@ -1,4 +1,4 @@
-package ru.ialmostdeveloper.soulfire_mobile;
+package ru.ialmostdeveloper.soulfire_mobile.Fragments;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import ru.ialmostdeveloper.soulfire_mobile.R;
 
 
 public class SelfBelievesFragment extends Fragment {

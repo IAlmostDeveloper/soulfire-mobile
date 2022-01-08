@@ -1,7 +1,7 @@
 package ru.ialmostdeveloper.soulfire_mobile.di
 
 import android.content.Context
-import ru.ialmostdeveloper.soulfire_mobile.MainActivity
+import ru.ialmostdeveloper.soulfire_mobile.Activities.MainActivity
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton

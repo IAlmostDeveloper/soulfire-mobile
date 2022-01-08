@@ -1,4 +1,4 @@
-package ru.ialmostdeveloper.soulfire_mobile;
+package ru.ialmostdeveloper.soulfire_mobile.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -19,6 +19,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+
+import ru.ialmostdeveloper.soulfire_mobile.R;
 
 public class RegisterActivity2 extends AppCompatActivity {
 

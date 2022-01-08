@@ -1,4 +1,4 @@
-package ru.ialmostdeveloper.soulfire_mobile;
+package ru.ialmostdeveloper.soulfire_mobile.Adapters;
 
 
 import androidx.annotation.NonNull;
@@ -6,6 +6,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import ru.ialmostdeveloper.soulfire_mobile.Fragments.PresetsAvailableFragment;
+import ru.ialmostdeveloper.soulfire_mobile.Fragments.PresetsSavedFragment;
 
 public class PresetsAdapter extends FragmentPagerAdapter {
 

@@ -1,12 +1,13 @@
-package ru.ialmostdeveloper.soulfire_mobile;
+package ru.ialmostdeveloper.soulfire_mobile.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+
+import ru.ialmostdeveloper.soulfire_mobile.R;
 
 public class LoginActivity extends AppCompatActivity {
 

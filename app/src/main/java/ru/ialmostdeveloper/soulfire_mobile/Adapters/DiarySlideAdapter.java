@@ -1,4 +1,4 @@
-package ru.ialmostdeveloper.soulfire_mobile;
+package ru.ialmostdeveloper.soulfire_mobile.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -16,6 +16,7 @@ import com.google.android.material.slider.Slider;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+import ru.ialmostdeveloper.soulfire_mobile.R;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryAnswer;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryQuestion;
 

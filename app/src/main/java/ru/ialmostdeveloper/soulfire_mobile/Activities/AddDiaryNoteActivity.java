@@ -1,4 +1,4 @@
-package ru.ialmostdeveloper.soulfire_mobile;
+package ru.ialmostdeveloper.soulfire_mobile.Activities;
 
 import static android.view.View.GONE;
 
@@ -9,7 +9,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import java.time.LocalDateTime;
@@ -20,6 +19,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import ru.ialmostdeveloper.soulfire_mobile.Adapters.DiarySlideAdapter;
+import ru.ialmostdeveloper.soulfire_mobile.R;
 import ru.ialmostdeveloper.soulfire_mobile.network.ApiClient;
 import ru.ialmostdeveloper.soulfire_mobile.network.SessionManager;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.AddDiaryNoteRequest;

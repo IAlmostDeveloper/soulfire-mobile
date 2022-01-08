@@ -12,43 +12,43 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Soulfiremobile">
         <activity
-            android:name=".AddPresetActivity"
+            android:name=".Activities.AddPresetActivity"
             android:exported="false" />
         <activity
-            android:name=".EditUserAchievementActivity"
+            android:name=".Activities.EditUserAchievementActivity"
             android:exported="false" />
         <activity
-            android:name=".AddUserAchievementActivity"
+            android:name=".Activities.AddUserAchievementActivity"
             android:exported="false" />
         <activity
-            android:name=".EditDiaryNoteActivity"
+            android:name=".Activities.EditDiaryNoteActivity"
             android:exported="false" />
         <activity
-            android:name=".AddDiaryNoteActivity"
+            android:name=".Activities.AddDiaryNoteActivity"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".Activities.SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity5"
+            android:name=".Activities.RegisterActivity5"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity4"
+            android:name=".Activities.RegisterActivity4"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity3"
+            android:name=".Activities.RegisterActivity3"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity2"
+            android:name=".Activities.RegisterActivity2"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity1"
+            android:name=".Activities.RegisterActivity1"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activities.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>

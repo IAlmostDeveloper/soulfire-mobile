@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/navigation_diary"
-        android:name="ru.ialmostdeveloper.soulfire_mobile.DiaryFragment"
+        android:name="ru.ialmostdeveloper.soulfire_mobile.Fragments.DiaryFragment"
         android:label="Дневник"
         tools:layout="@layout/fragment_diary" />
 
     <fragment
         android:id="@+id/navigation_selfbeliefs"
-        android:name="ru.ialmostdeveloper.soulfire_mobile.SelfBelievesFragment"
+        android:name="ru.ialmostdeveloper.soulfire_mobile.Fragments.SelfBelievesFragment"
         android:label="Дневник"
         tools:layout="@layout/fragment_self_believes" />
 
     <fragment
         android:id="@+id/navigation_presets"
-        android:name="ru.ialmostdeveloper.soulfire_mobile.PresetsFragment"
+        android:name="ru.ialmostdeveloper.soulfire_mobile.Fragments.PresetsFragment"
         android:label="Установки"
         tools:layout="@layout/fragment_presets" />
 
     <fragment
         android:id="@+id/navigation_achievements"
-        android:name="ru.ialmostdeveloper.soulfire_mobile.AchievementsFragment"
+        android:name="ru.ialmostdeveloper.soulfire_mobile.Fragments.AchievementsFragment"
         android:label="Достижения"
         tools:layout="@layout/fragment_achievements" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="ru.ialmostdeveloper.soulfire_mobile.ProfileFragment"
+        android:name="ru.ialmostdeveloper.soulfire_mobile.Fragments.ProfileFragment"
         android:label="Профиль"
         tools:layout="@layout/fragment_profile" />
 </navigation>
