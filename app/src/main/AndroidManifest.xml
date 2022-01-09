@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Soulfiremobile">
         <activity
+            android:name=".Activities.EditSelfBeliefActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.AddSelfBeliefActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.AddPresetActivity"
             android:exported="false" />
         <activity

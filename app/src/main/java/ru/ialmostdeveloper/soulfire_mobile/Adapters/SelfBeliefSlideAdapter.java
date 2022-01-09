@@ -1,29 +1,21 @@
 package ru.ialmostdeveloper.soulfire_mobile.Adapters;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.google.android.material.slider.Slider;
-
-import java.util.concurrent.atomic.AtomicInteger;
-
-import ru.ialmostdeveloper.soulfire_mobile.R;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryAnswer;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryQuestion;
 
-public class DiarySlideAdapter extends PagerAdapter {
-    Context context;
-    LayoutInflater inflater;
+public class SelfBeliefSlideAdapter extends PagerAdapter {
+    private final Context context;
 
+    public SelfBeliefSlideAdapter(Context context) {
+        this.context = context;
+    }
     public DiaryQuestion[] questions = {
             new DiaryQuestion(1, "Что случилось? Какое событие или поток мыслей привели к неприятным эмоциям?", false, null),
             new DiaryQuestion(1, "О чем я подумал, и что представил?", false, null),
@@ -43,68 +35,24 @@ public class DiarySlideAdapter extends PagerAdapter {
 
     public DiaryAnswer[] answers = new DiaryAnswer[questions.length];
 
-    public DiarySlideAdapter(Context context) {
-        this.context = context;
-    }
-    public EditText inputType1;
-    public Slider inputType2 ;
-    public LinearLayout inputType3;
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.diary_slide, container, false);
-//        if (position > 0)
-//            setPrimaryItem(container, position, view);
-        TextView questionText = view.findViewById(R.id.diary_question_label);
-        questionText.setText(questions[position].getContent());
-
-         inputType1 = view.findViewById(R.id.input_type1);
-        inputType2 = view.findViewById(R.id.input_type2);
-         inputType3 = view.findViewById(R.id.input_type3);
-
-
-
-        switch (questions[position].getType()) {
-            case 1:
-                inputType1.setVisibility(View.VISIBLE);
-                inputType2.setVisibility(View.GONE);
-                inputType3.setVisibility(View.GONE);
-                break;
-            case 2:
-                inputType1.setVisibility(View.VISIBLE);
-                inputType2.setVisibility(View.VISIBLE);
-                inputType3.setVisibility(View.GONE);
-                break;
-            case 3:
-                inputType1.setVisibility(View.GONE);
-                inputType2.setVisibility(View.GONE);
-                inputType3.setVisibility(View.VISIBLE);
-                break;
-        }
-
-
-        container.addView(view);
-        return view;
+        return super.instantiateItem(container, position);
     }
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-//        EditText inputType1 = ((LinearLayout) object).findViewById(R.id.input_type1);
-//        String answer = inputType1.getText().toString();
-//        DiaryAnswer diaryAnswer = new DiaryAnswer(1, questions[position].getContent(),
-//                answer  , null, null);
-//        answers[position] = diaryAnswer;
-        container.removeView((LinearLayout) object);
+        super.destroyItem(container, position, object);
     }
 
     @Override
     public int getCount() {
-        return questions.length;
+        return 0;
     }
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return (view == object);
+        return false;
     }
 }

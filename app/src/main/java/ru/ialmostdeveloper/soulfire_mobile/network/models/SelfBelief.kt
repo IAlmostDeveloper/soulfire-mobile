@@ -16,7 +16,11 @@ data class SelfBelief(
     val content: String,
 
     @SerializedName("selfBeliefProofs")
-    val selfBeliefProofs: Array<SelfBeliefProof>
+    val selfBeliefProofs: Array<SelfBeliefProof>,
+
+    @SerializedName("userAnswers")
+    val userAnswers: Array<UserAnswer>
+
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

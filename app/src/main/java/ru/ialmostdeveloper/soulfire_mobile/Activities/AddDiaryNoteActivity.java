@@ -48,6 +48,7 @@ public class AddDiaryNoteActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewpager);
         diarySlideAdapter = new DiarySlideAdapter(this);
         viewPager.setAdapter(diarySlideAdapter);
+        viewPager.setOffscreenPageLimit(1);
 
         Button skipQuestionBtn = findViewById(R.id.skip_answer_btn);
         Button nextQuestionBtn = findViewById(R.id.next_question_btn);
@@ -96,39 +97,9 @@ public class AddDiaryNoteActivity extends AppCompatActivity {
                 addDiaryNote(new DiaryNote("", Objects.requireNonNull(sessionManager.fetchUserId()),
                         diarySlideAdapter.answers[0].getStringContent(), diarySlideAdapter.answers[1].getStringContent(), updatedDate));
             } else {
-//                //switch (diarySlideAdapter.questions[viewPager.getCurrentItem()].getType()) {
-//                    case 1:
-//
-//                        //EditText inputType1 = null;
-//                        //inputType1 = viewPager.findViewById(R.id.input_type1);
-//
-//                        //String content = inputType1.getText().toString();
-//                        //DiaryAnswer diaryAnswer = new DiaryAnswer(1, diarySlideAdapter.questions[viewPager.getCurrentItem()].getContent(),
-//                        //     content   , null, null);
-//                        //diarySlideAdapter.answers[viewPager.getCurrentItem()] = diaryAnswer;
-//
-//                    default:
-//                        break;
-//                }
                 viewPager.setCurrentItem(currentItem.incrementAndGet());
             }
         });
-        //EditText note_title = findViewById(R.id.note_title);
-        //EditText note_content = findViewById(R.id.note_content);
-
-//        Button btn_addNote = findViewById(R.id.btn_add_note);
-//        btn_addNote.setOnClickListener(v -> {
-//            //String title = note_title.getText().toString();
-//            //String content = note_content.getText().toString();
-//
-//            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-//            LocalDateTime now = LocalDateTime.now();
-//            String updatedDate = now.format(dtf);
-//            DiaryNote diaryNote = new DiaryNote("", Objects.requireNonNull(sessionManager.fetchUserId()), title, content, updatedDate);
-//            addDiaryNote(diaryNote);
-//        });
-
-
     }
 
 
