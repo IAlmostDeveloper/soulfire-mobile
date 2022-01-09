@@ -92,4 +92,29 @@ interface APIService {
         @Header("Authorization") token: String,
         @Path("id") id: String
     ): Call<PresetResponse>
+
+    @GET(Constants.GET_SELF_BELIEFS_URL)
+    fun getSelfBeliefs(
+        @Header("Authorization") token: String,
+        @Path("id") id: String
+    ): Call<SelfBeliefsResponse>
+
+    @POST(Constants.ADD_SELF_BELIEF_URL)
+    fun addSelfBelief(
+        @Header("Authorization") token: String,
+        @Body selfBelief: SelfBelief
+    ): Call<SelfBeliefResponse>
+
+    @PATCH(Constants.UPDATE_SELF_BELIEF_URL)
+    fun updateSelfBelief(
+        @Header("Authorization") token: String,
+        @Path("id") id: String,
+        @Body selfBelief: SelfBelief
+    ): Call<SelfBeliefResponse>
+
+    @DELETE(Constants.DELETE_SELF_BELIEF_URL)
+    fun deleteSelfBelief(
+        @Header("Authorization") token: String,
+        @Path("id") id: String
+    ): Call<SelfBeliefResponse>
 }

@@ -23,4 +23,9 @@ object Constants {
     const val UPDATE_USER_PRESET_URL = "presets/{id}"
     const val DELETE_USER_PRESET_URL = "presets/{id}"
 
+    const val GET_SELF_BELIEFS_URL = "selfbelief/{id}"
+    const val ADD_SELF_BELIEF_URL = "selfbelief"
+    const val UPDATE_SELF_BELIEF_URL = "selfbelief/{id}"
+    const val DELETE_SELF_BELIEF_URL = "selfbelief/{id}"
+
 }
