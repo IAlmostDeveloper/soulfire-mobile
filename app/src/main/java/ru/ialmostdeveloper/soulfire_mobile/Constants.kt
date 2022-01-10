@@ -3,7 +3,7 @@ package ru.ialmostdeveloper.soulfire_mobile
 object Constants {
 
     // Endpoints
-    const val BASE_URL = "https://4f95-188-17-163-69.ngrok.io/api/"
+    const val BASE_URL = "https://a374-178-46-94-36.ngrok.io/api/"
     const val LOGIN_URL = "auth/login"
     const val REGISTER_URL = "auth/register"
 
@@ -27,5 +27,6 @@ object Constants {
     const val ADD_SELF_BELIEF_URL = "selfbelief"
     const val UPDATE_SELF_BELIEF_URL = "selfbelief/{id}"
     const val DELETE_SELF_BELIEF_URL = "selfbelief/{id}"
+    const val ADD_BELIEF_PROOF_URL = "selfbelief/{id}"
 
 }

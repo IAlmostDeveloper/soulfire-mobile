@@ -117,4 +117,11 @@ interface APIService {
         @Header("Authorization") token: String,
         @Path("id") id: String
     ): Call<SelfBeliefResponse>
+
+    @POST(Constants.ADD_BELIEF_PROOF_URL)
+    fun addBeliefProof(
+        @Header("Authorization") token: String,
+        @Path("id") id: String,
+        @Body proof: SelfBeliefProof
+    ) : Call<SelfBeliefProofResponse>
 }

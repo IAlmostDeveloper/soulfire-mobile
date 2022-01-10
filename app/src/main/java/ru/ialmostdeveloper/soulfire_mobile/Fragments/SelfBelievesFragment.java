@@ -22,6 +22,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Locale;
 
 import retrofit2.Call;
@@ -37,6 +38,7 @@ import ru.ialmostdeveloper.soulfire_mobile.network.ApiClient;
 import ru.ialmostdeveloper.soulfire_mobile.network.SessionManager;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.DiaryNote;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.SelfBelief;
+import ru.ialmostdeveloper.soulfire_mobile.network.models.SelfBeliefProof;
 import ru.ialmostdeveloper.soulfire_mobile.network.models.SelfBeliefsResponse;
 
 
@@ -113,6 +115,21 @@ public class SelfBelievesFragment extends Fragment {
                                 intent.putExtra("id", diaryNote.getId());
                                 intent.putExtra("title", diaryNote.getTitle());
                                 intent.putExtra("content", diaryNote.getContent());
+
+                                ArrayList<String> GoodProofs = new ArrayList<>();
+                                ArrayList<String> BadProofs = new ArrayList<>();
+
+                                for (SelfBeliefProof proof : diaryNote.getSelfBeliefProofs()){
+                                    if (proof.getType().equals("Good")){
+                                        GoodProofs.add(proof.getTitle());
+                                    }
+                                    else if (proof.getType().equals("Bad")){
+                                        BadProofs.add(proof.getTitle());
+                                    }
+                                }
+
+                                intent.putExtra("goodProofs", GoodProofs);
+                                intent.putExtra("badProofs", BadProofs);
 
                                 startActivity(intent);
                             });
