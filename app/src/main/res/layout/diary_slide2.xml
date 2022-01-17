@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/slidelinearlayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/diary_question_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text=""
+        android:textColor="#FFF"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/input_type1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:background="#4ba4b9"
+        android:gravity="top|start"
+        android:inputType="textMultiLine"
+        android:lines="8"
+        android:maxLines="10"
+        android:minLines="6"
+        android:paddingLeft="25dp"
+        android:textColor="#FFF"
+        android:visibility="gone" />
+
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/input_type2"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:tooltipText="Насколько я в это верю?"
+        android:value="50"
+        android:valueFrom="0"
+        android:valueTo="100"
+        android:visibility="gone"
+        app:thumbColor="@color/white" />
+
+    <LinearLayout
+        android:id="@+id/input_type3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/help_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_baseline_help_outline_24"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
